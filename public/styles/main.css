@@ -1,0 +1,69 @@
+h1 {
+  text-align: center;
+  color: black;
+  font-size: 100px;
+ 
+}
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+font-family: "Playfair Display";
+letter-spacing: 5px;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 35%;
+  padding: 10px;
+}
+img {
+    border-radius: 8px;
+    height: 7cm;
+    width: 10.5cm;
+    min-width: auto;
+    margin-left: 4cm;
+  }
+ 
+  
+  .picture img{
+
+    
+    float: right;
+    margin: 0px 0px 15px 15px;
+    border-radius: 8px;
+    height: 7cm;
+    width: 10.5cm;
+
+  }
+  
+  .block button{
+    float: left;
+    display:block;
+    font-size:22px;
+    font-style: oblique;
+    cursor:pointer;
+    width:200px;
+    margin-left:15cm;
+    margin-top: 2cm;
+    
+    border-radius:40px;
+    padding:8px 2px;
+    background:#111;
+    color:#fff
+  }
+  
+  
