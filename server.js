@@ -27,6 +27,10 @@ app.get('/game', function (req, res) {
    res.render('game');
 });
 
+app.get('/puzz', function (req, res) {
+   res.render('puzzle');
+});
+
 app.use('/', (req,res) => {
    res.status(404).send('<h1>404 Page Not Found!</h1>');
 });

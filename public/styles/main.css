@@ -12,8 +12,8 @@ letter-spacing: 5px;
 
 .column {
   float: left;
-  width: 33.33%;
-  padding: 10px;
+  width: 20.33%;
+  padding: 6px;
 }
 
 /* Clear floats after image containers */
@@ -27,7 +27,7 @@ letter-spacing: 5px;
 }
 
 .column {
-  flex: 35%;
+  flex: 25%;
   padding: 10px;
 }
 img {
@@ -35,7 +35,7 @@ img {
     height: 7cm;
     width: 10.5cm;
     min-width: auto;
-    margin-left: 4cm;
+    margin-left: 0.5cm;
   }
  
   
@@ -43,7 +43,7 @@ img {
 
     
     float: right;
-    margin: 0px 0px 15px 15px;
+    margin: 0px 0px 12px 12px;
     border-radius: 8px;
     height: 7cm;
     width: 10.5cm;
