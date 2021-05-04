@@ -1,0 +1,144 @@
+<html>
+   <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <title>Login Forms</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      
+      <style>
+          body{
+            align-content: center;
+
+          }
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+            
+         }
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+      
+   </head>
+   <body>
+      
+      <h2>Login page</h2>
+      <div ng-app = "mainApp" ng-controller = "studentController" align="w3-center">
+         
+         <form name = "studentForm"  action = "http://localhost:3000/process_request" method = "GET" novalidate>
+            <table border = "0">
+               <tr>
+                  <td>Name:</td>
+                  <td><input name = "name" type = "text" ng-model = "name" required>
+                     <span style = "color:red" ng-show = "studentForm.name.$dirty && studentForm.name.$invalid">
+                        <span ng-show = "studentForm.name.$error.required">Name is required.</span>
+                     </span>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>Mobile: </td>
+                  <td><input name = "mobile"  type = "tel" ng-model = "mobile" required>
+                     <span style = "color:red" ng-show = "studentForm.mobile.$dirty && studentForm.mobile.$invalid">
+                        <span ng-show = "studentForm.mobile.$error.required">Mobile number is required.</span>
+                     </span>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>Email: </td><td><input name = "email" type = "email" ng-model = "email" length = "100" value={{master.email}} required>
+                     <span style = "color:red" ng-show = "studentForm.email.$dirty && studentForm.email.$invalid">
+                        <span ng-show = "studentForm.email.$error.required">Email is required.</span>
+                        <span ng-show = "studentForm.email.$error.email">Invalid email address.</span>
+                     </span>
+                  </td>
+               </tr>
+                
+                 <tr>
+                    <td>User Name:: </td><td><input name = "username" type = "text" ng-model = "Username" required>
+                       <span style = "color:red" ng-show = "studentForm.username.$dirty && studentForm.username.$invalid">
+                          <span ng-show = "studentForm.username.$error.required">Username is required.</span>
+                       </span>
+                    </td>
+                 </tr>
+                 
+                 <tr>
+                    <td>Password: </td><td><input name = "Epassword" type = "password" ng-model = "Epassword" min-length = "8" required>
+                       <span style = "color:red" ng-show = "studentForm.Epassword.$dirty && studentForm.Epassword.$invalid">
+                          <span ng-show = "studentForm.Epassword.$error.required">password is required.</span>
+                       </span>
+                    </td>
+                 </tr>
+ 
+                 <tr>
+                    <td>Confirm Password: </td><td><input name = "Cpassword" type = "password" ng-model = "Cpassword" required compare-to="Epassword">
+                       <span style = "color:red" ng-show = "studentForm.Cpassword.$dirty && studentForm.Cpassword.$invalid">
+                          <span ng-show = "studentForm.Cpassword.$error.required">Confirm password is required.</span>
+                       </span>
+                       <span style="color: red;" ng-show="checkPass()">Password doesn't match</span>
+                    </td>
+                 </tr>
+ 
+                <tr>
+                  <td>
+                     <button ng-click = "reset()">Reset</button>
+                  </td>
+                  <td>
+                     <button ng-disabled = "studentForm.name.$dirty &&
+                        studentForm.name.$invalid || studentForm.mobile.$dirty &&
+                        studentForm.mobile.$invalid || studentForm.email.$dirty &&
+                        studentForm.email.$invalid || studentForm.username.$dirty && 
+                        studentForm.username.$invalid || studentForm.Epassword.$dirty &&                 
+                        studentForm.Epassword.$invalid ||  studentForm.Cpassword.$dirty &&
+                        studentForm.Cpassword.$invalid" ng-click="submit()">Submit</button>
+                  </td>
+               </tr>
+                    
+            </table>
+         </form>
+      </div>
+      
+      <script>
+          var mainApp = angular.module("mainApp", []);
+
+mainApp.controller('studentController', function ($scope) {
+    $scope.name = "Nency faganiya";
+    $scope.mobile = "7600193985";
+    $scope.email = "nency@gmail.com";
+    $scope.Username = "123456";
+    $scope.Epassword = "PASSWORD";
+    $scope.Cpassword = "PASSWORD";
+
+    $scope.reset = function () {
+        $scope.name = "Nency faganiya";
+        $scope.mobile = "7600193985";
+        $scope.email = "nency@gmail.com";
+        $scope.Username = "123456";
+        $scope.Epassword = "PASSWORD";
+        $scope.Cpassword = "PASSWORD";
+
+    }
+    $scope.checkPass = function () {
+
+        if ($scope.Cpassword === undefined) {
+            return false
+        }
+
+        if ($scope.Epassword !== $scope.Cpassword) {
+            return true
+        }
+
+
+    }
+
+    $scope.reset();
+});
+      </script>
+      
+   </body>
+</html>
+
